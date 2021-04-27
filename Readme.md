@@ -1,18 +1,18 @@
 # MVC SpringBoot
 
 ## The project follows MVC architecture
- - databases used: Mysql 
- - endpoints: POST: load an employee record, GET: all data 
+- databases used: Mysql
+- endpoints: POST: load an employee record, GET: all data
 
 ### Project Requirements:
 
 - maven
-- mysql 
+- mysql
 - create petshop database
 
 To get data
- - open MySql Command line Client
- - put the password in
+- open MySql Command line Client
+- put the password in
 
 ### Mysql commands
 
@@ -26,30 +26,13 @@ To get data
         
         delete FROM veterinary_doctor;
 
-- Data to test the load API
-            
-            {
-                "firstName": "edd",
-                "lastName": "world",
-                "middleName": "None",
-                "alias": "Cr",
-                "dateOfBirth": "2020-02-12",
-                "gender": "nongender",
-                "employmentDate": "2020-02-12",
-                "salary": "14",
-                "contactDetails": {
-                    "emailAddress": "goshawk@gmail.com"
-                },
-                "veterinaryDoctors" :[ 
-                	{
-                	"vetId": "14",
-                	"qualificationDate": "2020-02-12",
-                	"speciality" : "CARDIOLOGY"
-                	}
-                ] 
-            }
-            
-- Data to use for the employee relation
+### Data to test the API
+
+#### Employee
+
+- GET: http://localhost:8080/v1/employee/all
+
+- POST: http://localhost:8080/v1/veterinaryDoctors/new
 
             {
             	"veterinaryRegistryId": "1",
@@ -61,13 +44,40 @@ To get data
                 "alias": "Dr.JDA",
                 "employmentDate": "2020-02-12",
                 "salary": "60000",
-                "contactDetails": {
+                "contact": {
                     "emailAddress": "joe.doe@hmrc.com"
                 },
+                "specialities": [
+                    {
+                        "specialities": "CARDIOLOGY"
+                    }
+                ],
                 "qualificationDate": "2020-02-12"
-            }
-            
-- Data to test the employee relation with speciality
+            }     
 
-### To reset .gitignore 
+
+
+- GET: http://localhost:8080//v1/veterinaryDoctors/id/1
+
+- GET: http://localhost:8080/v1/speciality/id/1
+
+#### Owner
+
+- POST: http://localhost:8080/v1/owners/new
+
+          {
+              "firstName": "Cristian",
+              "lastName": "Vladut",
+              "middleName": "None",
+              "alias": "Cr",
+              "dateOfBirth": "2000-02-12",
+              "gender": "male",
+              "contact": {
+                  "emailAddress": "joe.doe@hmrc.com"
+              }
+          }
+
+- GET: http://localhost:8080/v1/owners/id/1
+
+### To reset .gitignore
         git rm -r --cached .
