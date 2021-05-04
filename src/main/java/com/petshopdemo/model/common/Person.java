@@ -19,14 +19,19 @@ import java.util.Date;
 @MappedSuperclass
 public abstract class Person extends PersonalInformation implements Serializable {
 
+    public Person(Long id, Date dateOfBirth, String gender, String firstName, String lastName, String middleName, String alias, Contact contact) {
+        super(id, dateOfBirth, gender);
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+        this.alias = alias;
+        this.contact = contact;
+    }
+
     private String firstName;
     private String lastName;
     private String middleName;
     private String alias;
-
-    @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
-    private String gender;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Contact contact;

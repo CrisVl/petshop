@@ -11,11 +11,11 @@ import java.util.List;
 public class VetDoctorService {
     private final VetDoctorRepository vetDoctorRepository;
 
+    @Autowired
     public VetDoctorService(VetDoctorRepository vetDoctorRepository) {
         this.vetDoctorRepository = vetDoctorRepository;
     }
 
-    @Autowired
     public List<Vet> returnAll() {
         return vetDoctorRepository.findAll();
     }

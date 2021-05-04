@@ -14,17 +14,13 @@ public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
 
+    @Autowired
     public EmployeeService(EmployeeRepository veterinaryDoctorRepository) {
         this.employeeRepository = veterinaryDoctorRepository;
     }
 
-    @Autowired
     public List<Employee> returnAll() {
         return employeeRepository.findAll();
-    }
-
-    public Employee saveEmployee(Employee employee) {
-        return employeeRepository.save(employee);
     }
 
     public Employee findById(Long id) {

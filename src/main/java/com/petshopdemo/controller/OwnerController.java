@@ -1,9 +1,6 @@
 package com.petshopdemo.controller;
 
-
-import com.petshopdemo.model.Employee;
 import com.petshopdemo.model.Owner;
-import com.petshopdemo.model.Vet;
 import com.petshopdemo.services.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

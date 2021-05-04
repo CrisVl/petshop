@@ -1,9 +1,6 @@
 package com.petshopdemo.model.common;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
@@ -17,6 +14,13 @@ import java.util.Date;
 @NoArgsConstructor
 @MappedSuperclass
 public abstract class PersonalInformation extends BaseEntity {
+
+    public PersonalInformation(Long id, Date dateOfBirth, String gender) {
+        super(id);
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+    }
+
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
     private String gender;
